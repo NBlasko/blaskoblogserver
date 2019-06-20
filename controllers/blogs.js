@@ -4,7 +4,8 @@ const Blog = require('../models/blog');
 module.exports = {
     index: async (req, res, next) => {
         //get all blogs
-        const blogs = await Blog.find({});
+        const blogs = await Blog.find({})
+        .sort({"date": -1});
         res.status(200).json(blogs);
     },
     newBlog: async (req, res, next) => {
