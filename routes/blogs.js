@@ -12,10 +12,10 @@ const { validateParam, validateBody, schemas } = require('../helpers/routeHelper
 router.route('/')
     .get(blogController.index) 
 
-router.route('/addBlog/')
+router.route('/addblog/')
     .post(validateBody(schemas.blogSchema), blogController.newBlog);
 
-router.route('/singleBlog/:blogId')
+router.route('/singleblog/:blogId')
     .get(validateParam(schemas.idSchema, 'blogId'),blogController.getBlog)
     .delete(validateParam(schemas.idSchema, 'blogId'), blogController.deleteBlog);
 
