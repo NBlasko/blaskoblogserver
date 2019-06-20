@@ -12,7 +12,9 @@ const cors = require('cors');
 // Middleware
 app.use(morgan('dev'));
 app.use(bodyParser.json());
-app.use(cors());
+app.use(cors({
+    origin: process.env.BACK_ORIGIN 
+}));
 
 //mongoose-mongodb
 require('./db/connection');
